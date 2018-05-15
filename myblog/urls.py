@@ -4,5 +4,6 @@ from blog import views as blog_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'test/', blog_views.home)
+    url(r'^username/(?P<username>[-\w]+)/$', blog_views.home, name='username')
 ]
+
