@@ -1,6 +1,6 @@
 {% include 'partials/header.html' %}
 
-    <h3>Hi, {{ currentuser }}</h3>
+    <h3>Home</h3>
     <ul>
         {% for post in posts %}
             <li>
@@ -10,5 +10,17 @@
             </li>
         {% endfor %}
     </ul>
+<div class="pagination">
+    {% if posts.has_previous %}
+        <a href="?page={{posts.previous_page_number}}">prev</a>
+    {% endif %}
+
+    {% if posts.has_next %}
+        <a href="?page={{posts.next_page_number}}">next</a>
+    {% endif %}
+
+    Page {{ posts.number }} of {{ posts.paginator.num_pages }}
+
+</div>
 {% include 'partials/footer.html' %}
 
